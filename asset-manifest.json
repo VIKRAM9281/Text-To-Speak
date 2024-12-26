@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/Text-To-Speak/static/css/main.4c9fc11d.css",
-    "main.js": "/Text-To-Speak/static/js/main.5b85f267.js",
+    "main.js": "/Text-To-Speak/static/js/main.8c28b3a7.js",
     "index.html": "/Text-To-Speak/index.html",
     "main.4c9fc11d.css.map": "/Text-To-Speak/static/css/main.4c9fc11d.css.map",
-    "main.5b85f267.js.map": "/Text-To-Speak/static/js/main.5b85f267.js.map"
+    "main.8c28b3a7.js.map": "/Text-To-Speak/static/js/main.8c28b3a7.js.map"
   },
   "entrypoints": [
     "static/css/main.4c9fc11d.css",
-    "static/js/main.5b85f267.js"
+    "static/js/main.8c28b3a7.js"
   ]
 }
