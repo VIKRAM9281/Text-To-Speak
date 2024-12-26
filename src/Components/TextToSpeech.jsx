@@ -11,11 +11,11 @@ const TextToSpeech = () => {
       const voicesList = window.speechSynthesis.getVoices();
       setVoices(voicesList);
       if (voicesList.length > 0) {
-        setSelectedVoice((prev) => prev || voicesList[0].name); // Default to the first voice if not already set
+        setSelectedVoice((prev) => prev || voicesList[0].name); // Default to the first voice
       }
     };
 
-    // Load voices and attach event for voice change
+    // Load voices and handle voice changes
     loadVoices();
     window.speechSynthesis.onvoiceschanged = loadVoices;
   }, []);
@@ -36,6 +36,7 @@ const TextToSpeech = () => {
     const voice = voices.find((v) => v.name === selectedVoice);
     if (voice) {
       speech.voice = voice;
+      speech.lang = voice.lang; // Ensure the language matches the selected voice
     } else {
       console.error('Selected voice not found');
     }
