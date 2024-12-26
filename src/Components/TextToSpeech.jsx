@@ -4,19 +4,19 @@ import VoiceSelector from './VoiceSelector';
 const TextToSpeech = () => {
   const [text, setText] = useState('');
   const [voices, setVoices] = useState([]);
-  const [selectedVoice, setSelectedVoice] = useState(null);
+  const [selectedVoice, setSelectedVoice] = useState('');
 
   useEffect(() => {
     const loadVoices = () => {
       const voicesList = window.speechSynthesis.getVoices();
       setVoices(voicesList);
-      if (voicesList.length > 0) setSelectedVoice(voicesList[2].name);
+      if (voicesList.length > 0) {
+        setSelectedVoice((prev) => prev || voicesList[0].name); // Default to the first voice if not already set
+      }
     };
 
-    // Load voices
+    // Load voices and attach event for voice change
     loadVoices();
-
-    // Ensure voices are loaded for some browsers
     window.speechSynthesis.onvoiceschanged = loadVoices;
   }, []);
 
@@ -34,7 +34,11 @@ const TextToSpeech = () => {
 
     // Set selected voice
     const voice = voices.find((v) => v.name === selectedVoice);
-    if (voice) speech.voice = voice;
+    if (voice) {
+      speech.voice = voice;
+    } else {
+      console.error('Selected voice not found');
+    }
 
     window.speechSynthesis.speak(speech);
   };

@@ -1,18 +1,15 @@
-// src/components/VoiceSelector.js
-import React from 'react';
-
 const VoiceSelector = ({ voices, selectedVoice, onVoiceChange }) => {
+  const handleChange = (e) => {
+    onVoiceChange(e.target.value);
+  };
+
   return (
     <div className="voice-selector">
-      <label htmlFor="voice-select">Choose a Voice:</label>
-      <select
-        id="voice-select"
-        value={selectedVoice}
-        onChange={(e) => onVoiceChange(e.target.value)}
-      >
+      <label htmlFor="voices">Select Voice:</label>
+      <select id="voices" value={selectedVoice} onChange={handleChange}>
         {voices.map((voice) => (
           <option key={voice.name} value={voice.name}>
-            {voice.name} {voice.lang ? `(${voice.lang})` : ''}
+            {voice.name} ({voice.lang})
           </option>
         ))}
       </select>
