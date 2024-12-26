@@ -11,7 +11,7 @@ const TextToSpeech = () => {
       const voicesList = window.speechSynthesis.getVoices();
       setVoices(voicesList);
       if (voicesList.length > 0) {
-        setSelectedVoice((prev) => prev || voicesList[0].name); // Default to the first voice
+        setSelectedVoice((prev) => prev || voicesList[2].name); // Default to the first voice
       }
     };
 
